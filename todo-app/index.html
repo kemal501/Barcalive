@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App - Local Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 My Todo List</h1>
+            <p id="todoCount" class="todo-count">0 tasks</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="todoInput" 
+                    placeholder="Add a new task..."
+                    class="todo-input"
+                    autocomplete="off"
+                >
+                <select id="prioritySelect" class="priority-select">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button id="addBtn" class="btn btn-add">Add Task</button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <button class="filter-btn" data-filter="high">High Priority</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-label">Total:</span>
+                <span id="totalTodos" class="stat-value">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Completed:</span>
+                <span id="completedTodos" class="stat-value">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Progress:</span>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="todoList" class="todo-list">
+            <!-- Todos will be inserted here -->
+        </div>
+
+        <div class="empty-state" id="emptyState">
+            <p>🎉 No tasks yet! Add one to get started.</p>
+        </div>
+
+        <div class="actions">
+            <button id="clearCompleted" class="btn btn-secondary">Clear Completed</button>
+            <button id="exportBtn" class="btn btn-secondary">Export</button>
+            <button id="importBtn" class="btn btn-secondary">Import</button>
+            <input type="file" id="fileInput" accept=".json" style="display: none;">
+            <button id="resetAllBtn" class="btn btn-danger">Reset All</button>
+        </div>
+
+        <footer>
+            <p>✨ Tasks are saved automatically to your browser</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
